@@ -10,6 +10,7 @@ import raven
 root = environ.Path(__file__) - 2
 env = environ.Env(
     ALLOWED_HOSTS=(list, []),
+    INTERNAL_IPS=(list, []),
     DEBUG=(bool, False),
 {%- if cookiecutter.use_sentry == 'y' %}
     SENTRY_DSN=(str, ''),
@@ -32,6 +33,7 @@ SECRET_KEY = '[[ hooks.secret ]]'
 DEBUG = env('DEBUG')  # False if not in os.environ
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+INTERNAL_IPS = env('INTERNAL_IPS')
 
 # Application definition
 
